@@ -1,0 +1,64 @@
+
+ 
+ <div id="body">
+    <main class="table" id="students_table">
+        <section class="table__header">
+            <h1 style="font-weight: bolder;">Student's Records</h1>
+            <div class="input-group">
+               <input type="search" [(ngModel)]="searchtext" placeholder="Search Data..." style="height: 20px; width: 25px;" >
+               <img id="back_img" src="../../assets/search.png" alt="" style="margin-top: 5px;">
+           </div>
+           <div class="export__file">
+               <label for="export-file" class="export__file-btn" title="Export File"></label>
+               <input type="checkbox" id="export-file">
+               <div class="export__file-options">
+                <div style="display: flex;"> 
+                   <label>Export As &nbsp; &#10140;</label>
+                   <!-- <label for="export-file" id="toPDF">PDF <img src="../../assets/pdf.png" alt=""></label>
+                   <label for="export-file" id="toJSON">JSON <img src="../../assets/json.png" alt=""></label>
+                   <label for="export-file" id="toCSV">CSV <img src="../../assets/csv.png" alt=""></label> -->
+                   <label for="export-file" id="toEXCEL">EXCEL  <img src="../../assets/excel.png" alt="" (click)="exportexcel()"></label>
+                </div>
+               </div>
+           </div>
+    
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                   <tr> 
+                       <th class="table__1">First Name</th>
+                       <th class="table__1">Last Name</th>
+                       <th class="table__1">Email</th>
+                       <th class="table__1">Course</th>
+                       <th class="table__1">Gender</th>
+                       <th class="table__1">Phone Number</th>
+                       <th>Actions</th>
+                       <th>Actions</th>
+                       </tr>
+                </thead>
+                <tbody>
+                    
+                       <tr *ngFor="let user of users|filter:searchtext">
+                       <td> {{ user.firstName }} </td>
+                       <td> {{ user.lastName }} </td>
+                       <td> {{ user.email }} </td>
+                       <td> {{ user.course }} </td>
+                       <td> {{ user.gender }} </td>
+                       <td> {{ user.phone_no }} </td>
+                     
+                       <!-- <td id="button_padding" style="width: 20px; display: flex;"> -->
+                       <td>
+                       <button (click) = "updateStudent(user.id)" class="btn btn-outline-success" style="width: 100px;border-radius: 1rem;color: black;font-weight: bold;">Update</button>
+                       </td>
+                       <td>
+                       <button (click) = "deleteStudent(user.id)" class="btn btn-outline-danger" style="width: 100px;border-radius: 1rem;color: black;font-weight: bold;">Delete</button>
+                       </td>
+                       </tr>
+                   
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</div>

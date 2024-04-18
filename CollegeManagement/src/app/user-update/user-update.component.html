@@ -1,0 +1,118 @@
+<div id="body">
+    <div class="container">
+        <header style="font-weight: bold;">Update Student Data</header>
+        <form (ngSubmit)="onSubmit()" class="form" #stdForm="ngForm">
+    
+            <div class="form-group">
+                <label for="firstName"> First Name</label>
+                <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+                <div *ngIf="stdForm.controls['firstName']?.touched && stdForm.controls['firstName']?.invalid">
+                    <div *ngIf="stdForm.controls['firstName']?.errors?.['required']" class="errors-message" style="color: red;font-weight: 400;">
+                        *First Name is required
+                    </div>
+    
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label for="lastName"> Last Name</label>
+                <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
+                <div *ngIf="stdForm.controls['lastName']?.touched && stdForm.controls['lastName']?.invalid">
+                    <div *ngIf="stdForm.controls['lastName']?.errors?.['required']" class="errors-message" style="color: red;font-weight: 400;">
+                        *Last Name is required
+                    </div>
+    
+                </div>
+            </div>
+            <br>
+            <div class="column" style="display: flex; justify-content: flex-start;">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email" required >
+                        <div *ngIf="stdForm.controls['email']?.touched && stdForm.controls['email']?.invalid">
+                            <div *ngIf="stdForm.controls['email']?.errors?.['required']" class="errors-message" style="color: red;font-weight: 400;">
+                                *Email is required
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group" style="padding-left: 6rem;">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required >
+                        <div *ngIf="stdForm.controls['password']?.touched && stdForm.controls['password']?.invalid">
+                            <div *ngIf="stdForm.controls['password']?.errors?.['required']" class="errors-message" style="color: red;font-weight: 400;">
+                                *Password is required
+                            </div>
+            
+                        </div>
+                    </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="BSC_CS" name="course" value="BSC CS" [(ngModel)]="user.course" required>
+                    <label class="form-check-label" for="BSC_CS" style="padding-left: 25px;">BSC CS</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="MSC_CS" name="course" value="MSC CS" [(ngModel)]="user.course" required>
+                    <label class="form-check-label" for="MSC_CS" style="padding-left: 25px;">MSC CS</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="BSC_IT" name="course" value="BSC IT" [(ngModel)]="user.course" required>
+                    <label class="form-check-label" for="BSC_IT" style="padding-left: 25px;">BSC IT</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="MSC_IT" name="course" value="MSC IT" [(ngModel)]="user.course" required>
+                    <label class="form-check-label" for="MSC_IT" style="padding-left: 25px;">MSC IT</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="MCA" name="course" value="MCA" [(ngModel)]="user.course" required>
+                    <label class="form-check-label" for="MCA" style="padding-left: 25px;">MCA</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="BCA" name="course" value="BCA" [(ngModel)]="user.course" required>
+                    <label class="form-check-label" for="BCA" style="padding-left: 25px;">BCA</label>
+                </div>
+        </div>
+        
+        <div class="gender-box">
+            <div class="gender-option">
+    
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" id="genderMale" name="gender" value="Male" [(ngModel)]="user.gender">
+                      <label class="form-check-label" for="genderMale">Male</label>
+                    </div>
+                    
+    
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" id="genderFemale" name="gender" value="Female" [(ngModel)]="user.gender">
+                      <label class="form-check-label" for="genderFemale">Female</label>
+                    </div>
+    
+    
+                    </div>
+              </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="phone_no">Phone number</label>
+            <input type="number" class="form-control" id="phone_no" [(ngModel)]="user.phone_no" name="phone_no" required>
+            <div *ngIf="stdForm.controls['phone_no']?.touched && stdForm.controls['phone_no']?.invalid">
+                <div *ngIf="stdForm.controls['phone_no']?.errors?.['required']" class="errors-message" style="color: red;font-weight: 400;">
+                    *Phone Number is required
+                </div>
+    
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-outline-info" type="submit">Submit</button>
+    
+        </form>
+    </div>
+    </div>
+    
